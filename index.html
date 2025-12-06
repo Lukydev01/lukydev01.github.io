@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luky - Portfolio (WIP)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Animated Background -->
+  <canvas id="bgCanvas"></canvas>
+  
+  <!-- Particles -->
+  <div id="particles"></div>
+
+  <!-- Login Screen -->
+  <div id="loginScreen" class="login-screen">
+    <div class="login-container">
+      <div class="terminal-header">
+        <span class="terminal-title">[ SISTEMA DE AUTENTICAÇÃO ]</span>
+        <span class="cursor">_</span>
+      </div>
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="username">&gt; USERNAME:</label>
+          <input type="text" id="username" class="terminal-input" autocomplete="off" required>
+        </div>
+        <div class="form-group">
+          <label for="password">&gt; PASSWORD:</label>
+          <input type="password" id="password" class="terminal-input" autocomplete="off" required>
+        </div>
+        <button type="submit" class="btn-login">[ INICIAR SESSÃO ]</button>
+      </form>
+      <div id="loginError" class="error-message"></div>
+      <div class="login-hint">
+        Dica: usuario: <span class="highlight">luky</span> | senha: <span class="highlight">dev123</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div id="mainContent" class="main-content hidden">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="avatar-container">
+          <img src="developer-avatar.jpg" alt="Luky Avatar" class="avatar">
+          <div class="status-indicator"></div>
+        </div>
+        <h2 class="dev-name">LUKY.DEV</h2>
+        <p class="dev-title">Aluno de Informática | Dev em construção</p>
+      </div>
+
+      <nav class="nav-menu">
+        <button class="nav-item active" data-section="about">
+          <span class="nav-icon">▶</span> SOBRE_MIM
+        </button>
+        <button class="nav-item" data-section="skills">
+          <span class="nav-icon">▶</span> HABILIDADES
+        </button>
+        <button class="nav-item" data-section="projects">
+          <span class="nav-icon">▶</span> PROJETOS
+        </button>
+        <button class="nav-item" data-section="contact">
+          <span class="nav-icon">▶</span> CONTATO
+        </button>
+        <button class="nav-item" data-section="achievements">
+          <span class="nav-icon">▶</span> CONQUISTAS
+        </button>
+      </nav>
+
+      <button id="logoutBtn" class="logout-btn">
+        [ SAIR DO SISTEMA ]
+      </button>
+    </aside>
+
+    <!-- Content Area -->
+    <main class="content-area">
+      <!-- About Section -->
+      <section id="about" class="content-section active">
+        <div class="section-header">
+          <h1 class="section-title">[ SOBRE_MIM ]</h1>
+          <span class="cursor-blink">_</span>
+        </div>
+        <div class="terminal-box">
+          <div class="terminal-line">
+            <span class="prompt">&gt;</span>
+            <span class="text">Olá! Eu sou <span class="highlight">Lucas</span>, estudante de informática e dev em fase pré-alpha.</span>
+          </div>
+          <div class="terminal-line">
+            <span class="prompt">&gt;</span>
+            <span class="text">Protótipo extremamente em early-stage de full-stack developer.</span>
+          </div>
+          <div class="terminal-line">
+            <span class="prompt">&gt;</span>
+            <span class="text">Divido o tempo entre escola, animes, jogos e daydreaming.</span>
+          </div>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-number" data-target="3">0</div>
+            <div class="stat-label">Linguagens que consigo sobreviver</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" data-target="5">0</div>
+            <div class="stat-label">Projetos escolares que deleguei ao ChatGPT</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" data-target="10">0</div>
+            <div class="stat-label">Porcetagem de sanidade restante</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section id="skills" class="content-section">
+        <div class="section-header">
+          <h1 class="section-title">[ HABILIDADES ]</h1>
+          <span class="cursor-blink">_</span>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <div class="skill-icon">{ }</div>
+            <h3 class="skill-name">HTML / CSS</h3>
+            <div class="skill-bar">
+              <div class="skill-progress" data-progress="70"></div>
+            </div>
+            <span class="skill-percent">70%</span>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon">JS</div>
+            <h3 class="skill-name">JavaScript básico</h3>
+            <div class="skill-bar">
+              <div class="skill-progress" data-progress="55"></div>
+            </div>
+            <span class="skill-percent">55%</span>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon">C++</div>
+            <h3 class="skill-name">C++ / Algoritmia</h3>
+            <div class="skill-bar">
+              <div class="skill-progress" data-progress="60"></div>
+            </div>
+            <span class="skill-percent">60%</span>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon">📊</div>
+            <h3 class="skill-name">SQL / Oracle</h3>
+            <div class="skill-bar">
+              <div class="skill-progress" data-progress="50"></div>
+            </div>
+            <span class="skill-percent">50%</span>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon">🛜</div>
+            <h3 class="skill-name">Redes & VMsS</h3>
+            <div class="skill-bar">
+              <div class="skill-progress" data-progress="40"></div>
+            </div>
+            <span class="skill-percent">40%</span>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon">🧠</div>
+            <h3 class="skill-name">Aprender coisas novas</h3>
+            <div class="skill-bar">
+              <div class="skill-progress" data-progress="90"></div>
+            </div>
+            <span class="skill-percent">90%</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="projects" class="content-section">
+        <div class="section-header">
+          <h1 class="section-title">[ PROJETOS ]</h1>
+          <span class="cursor-blink">_</span>
+        </div>
+        <div class="projects-grid">
+          <div class="project-card">
+            <div class="project-header">
+              <h3 class="project-title">Gestão de Jogadores & Árbitros</h3>
+              <span class="project-status">PROJETO ESCOLAR</span>
+            </div>
+            <p class="project-desc">
+              Aplicação em C++ para registar jogadores e árbitros de um clube, com menus à moda antiga e muitos ifs.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">C++</span>
+              <span class="tech-tag">Programação Procedimental</span>
+              <span class="tech-tag">Ficheiros .txt</span>
+            </div>
+            <div class="project-actions">
+              <button class="btn-project">VER DETALHES</button>
+              <button class="btn-project">CÓDIGO (EM BREVE)</button>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-header">
+              <h3 class="project-title">Base de Dados Biblioteca</h3>
+              <span class="project-status">PROJETO ESCOLAR</span>
+            </div>
+            <p class="project-desc">
+              Esquema de base de dados para gerir livros, autores, leitores e empréstimos. Ideal para quem gosta de SELECT * FROM tudo.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">SQL</span>
+              <span class="tech-tag">Oracle</span>
+              <span class="tech-tag">Modelo Relacional</span>
+            </div>
+            <div class="project-actions">
+              <button class="btn-project">VER DETALHES</button>
+              <button class="btn-project">SCRIPT SQL</button>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-header">
+              <h3 class="project-title">Este Próprio Portefólio</h3>
+              <span class="project-status">EM CONSTRUÇÃO</span>
+            </div>
+            <p class="project-desc">
+              Website pessoal minimalista, com vibes retro e um login inútil só para parecer mais hacker.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">HTML</span>
+              <span class="tech-tag">CSS</span>
+              <span class="tech-tag">JavaScript</span>
+            </div>
+            <div class="project-actions">
+              <button class="btn-project">VER SITE</button>
+              <button class="btn-project">CÓDIGO</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="content-section">
+        <div class="section-header">
+          <h1 class="section-title">[ CONTATO ]</h1>
+          <span class="cursor-blink">_</span>
+        </div>
+        <div class="contact-container">
+          <div class="contact-info">
+            <div class="contact-item">
+              <span class="contact-icon">📧</span>
+              <div>
+                <div class="contact-label">EMAIL</div>
+                <a href="mailto:lucas10fonseca10@gmail.com" class="contact-value">lucas10fonseca10@gmail.com</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon">🐙</span>
+              <div>
+                <div class="contact-label">GITHUB</div>
+                <a href="https://github.com/lukydev" target="_blank" class="contact-value">github.com/lukydev</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon">💼</span>
+              <div>
+                <div class="contact-label">MYANIMELIST</div>
+                <a href="https://myanimelist.net/profile/VermillionRose" target="_blank" class="contact-value">myanimelist.net/profile/VermillionRose</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon">🐦</span>
+              <div>
+                <div class="contact-label">TWITTER</div>
+                <a href="https://x.com/vermillionrose1" target="_blank" class="contact-value">@vermillionrose1</a>
+              </div>
+            </div>
+          </div>
+          <form id="contactForm" class="contact-form">
+            <div class="form-group">
+              <label>&gt; NOME:</label>
+              <input type="text" class="terminal-input" required>
+            </div>
+            <div class="form-group">
+              <label>&gt; EMAIL:</label>
+              <input type="email" class="terminal-input" required>
+            </div>
+            <div class="form-group">
+              <label>&gt; MENSAGEM:</label>
+              <textarea class="terminal-input" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn-submit">[ ENVIAR MENSAGEM ]</button>
+          </form>
+        </div>
+      </section>
+
+      <!-- Achievements Section -->
+      <section id="achievements" class="content-section">
+        <div class="section-header">
+          <h1 class="section-title">[ CONQUISTAS ]</h1>
+          <span class="cursor-blink">_</span>
+        </div>
+        <div class="achievements-grid">
+          <div class="achievement-card unlocked">
+            <div class="achievement-icon">🏆</div>
+            <h3 class="achievement-name">Primeiro Projeto em C++</h3>
+            <p class="achievement-desc">Sobreviveu a ponteiros, arrays e erros de compilação sem desistir.</p>
+            <div class="achievement-date">Desbloqueado: 2024</div>
+          </div>
+          <div class="achievement-card unlocked">
+            <div class="achievement-icon">⭐</div>
+            <h3 class="achievement-name">XAMPP não explodiu</h3>
+            <p class="achievement-desc">Conseguiu pôr Apache a correr depois de lutar com a porta 80.</p>
+            <div class="achievement-date">Desbloqueado: 2025</div>
+          </div>
+          <div class="achievement-card unlocked">
+            <div class="achievement-icon">🚀</div>
+            <h3 class="achievement-name">Trabalho de Português OP</h3>
+            <p class="achievement-desc">Entregou um trabalho com índice automático, capa e tudo direitinho.</p>
+            <div class="achievement-date">Desbloqueado: 2025</div>
+          </div>
+          <div class="achievement-card unlocked">
+            <div class="achievement-icon">💎</div>
+            <h3 class="achievement-name">Modo Tryhard</h3>
+            <p class="achievement-desc">Passou uma noite inteira a mexer em código só para alinhar um botão.</p>
+            <div class="achievement-date">Desbloqueado: 2024</div>
+          </div>
+          <div class="achievement-card locked">
+            <div class="achievement-icon">🔒</div>
+            <h3 class="achievement-name">Portefólio Público Online</h3>
+            <p class="achievement-desc">Deploy em servidor real, com domínio e tudo.</p>
+            <div class="achievement-progress">0/1</div>
+          </div>
+          <div class="achievement-card locked">
+            <div class="achievement-icon">🔒</div>
+            <h3 class="achievement-name">Primeiro Trabalho Pago</h3>
+            <p class="achievement-desc">Receber dinheiro real para escrever código.</p>
+            <div class="achievement-progress">0/1</div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
